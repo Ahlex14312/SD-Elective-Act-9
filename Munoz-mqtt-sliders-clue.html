@@ -1,0 +1,306 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 9: Adafruit CLUE Sliders</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    h1,
+    h4 {
+      text-align: center;
+    }
+
+    .slidecontainer {
+      width: 100%;
+      /* Width of the outside container */
+    }
+
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: none;
+      /* Override default CSS styles */
+      appearance: none;
+      /* width: 100%; Full-width */
+      height: 25px;
+      /* Specified height */
+      background: #d3d3d3;
+      /* Grey background */
+      outline: none;
+      /* Remove outline */
+      opacity: 0.7;
+      /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s;
+      /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+      opacity: 1;
+      /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /* Override default look */
+      appearance: none;
+      width: 25px;
+      /* Set a specific slider handle width */
+      height: 25px;
+      /* Slider handle height */
+      background: hsl(36, 93%, 49%);
+      /* Green background */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      /* Set a specific slider handle width */
+      height: 25px;
+      /* Slider handle height */
+      background: #4CAF50;
+      /* Green background */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+  </style>
+</head>
+
+<body >
+  <h1>Adafruit CLUE Sliders</h1>
+  <h4 id="status-header">Connecting...</h4>
+  <!-- Accelerometer Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Accelerometer</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Accelerometer X Slider -->
+          <p>X: <span id="accelXRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1023" max="1023" value="0" class="slider" name="accelXRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Accelerometer Y Slider -->
+          <p>Y: <span id="accelYRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1023" max="1023" value="0" class="slider" name="accelYRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Accelerometer Z Slider -->
+          <p>Z: <span id="accelZRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1023" max="1023" value="0" class="slider" name="accelZRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Gyroscope Slider-->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Gyroscope</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Gyroscope X Slider-->
+          <p>X: <span id="gyroXRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="gyroXRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Gyroscope Y Slider-->
+          <p>Y: <span id="gyroYRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="gyroYRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Gyroscope Z Slider-->
+          <p>Z: <span id="gyroZRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="gyroZRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Magnetic Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Magnetic</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Magnetic X Slider -->
+          <p>X: <span id="magneticXRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="magneticXRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Magnetic Y Slider -->
+          <p>Y: <span id="magneticYRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="magneticYRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+           <!-- Magnetic Z Slider -->
+          <p>Z: <span id="magneticZRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-1000" max="1000" value="0" class="slider" name="magneticZRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- Pressure Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Pressure</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <p><span id="pressureRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-800" max="1100" value="0" class="slider" name="pressureRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Temperature Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Temperature</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <p><span id="tempRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="-55" max="125" value="0" class="slider" name="tempRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Humidity Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Humidity</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <p><span id="humidityRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="100" value="0" class="slider" name="humidityRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Proximity Slider -->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Proximity</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <p><span id="proximityRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="255" value="0" class="slider" name="proximityRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Color Slider-->
+  <div class="container-fluid">
+    <h4 class="text text-left font-weight-bolder">Color</h4>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Color R Slider-->
+          <p>R: <span id="colorRRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="65535" value="0" class="slider" name="colorRRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Color G Slider-->
+          <p>G: <span id="colorGRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="65535" value="0" class="slider" name="colorGRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Color B Slider-->
+          <p>B: <span id="colorBRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="65535" value="0" class="slider" name="colorBRange">
+        </div>
+      </div>
+    </div>
+    <div class="slidecontainer container">
+      <div class="row">
+        <div class="col-xs-2">
+          <!-- Color C Slider-->
+          <p>C: <span id="colorCRange">0</span></p>
+        </div>
+        <div class="col-xs-10">
+          <input type="range" min="0" max="65535" value="0" class="slider" name="colorCRange">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <script src="./browserMqtt.js"></script>
+  <script src="./Munoz-mqtt-sliders-clue.js"></script>
+</body>
+
+</html>
